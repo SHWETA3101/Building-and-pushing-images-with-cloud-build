@@ -1,0 +1,8 @@
+steps:
+
+#name point to a container image to execute
+- name: 'gcr.io/cloud-builders/docker'
+#list of arguments and passes it to builder, i.e build is entrypoint to docker cloud builder, t is docker tag, name of the image and '.' as location of the source code
+  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/starter-docker-repo/starter-image:tag1', '.' ]
+images:
+- 'us-central1-docker.pkg.dev/$PROJECT_ID/starter-docker-repo/starter-image:tag1'
