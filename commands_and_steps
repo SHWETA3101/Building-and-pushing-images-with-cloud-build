@@ -1,0 +1,29 @@
+1. Open a cloud shell session
+2. Create a new directory, e.g. here starter-dir 
+	mkdir starter-dir cloudshell workspace \ starter-dir
+3.Create a file in the same directory, e.g. here starter.html
+4. Create a file in the same directory, e.g. Dockerfile
+5.Make starter.html executable
+	 chmod +x starter.html
+
+	create a Docker repository in Artifact Registry
+6.Create a new Docker repository named starter-docker-repo in the location us-central1 with the description "Docker repository":
+	gcloud artifacts repositories \
+    create starter-docker-repo \
+    --repository-format=docker \
+    --location=us-central1 \
+    --description="Docker \
+    repository"
+	
+	build an image using Dockerfile
+7.Run the following command from the directory containing starter.html and Dockerfile, where xenon-world-273505 is your Cloud project ID:
+	gcloud builds submit --tag \
+    us-central1-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/starter-image:tag1
+
+      build an image using a build config file
+
+8.create a fime name cloudbuild.yaml in the same directory
+
+9. start the build
+	gcloud builds submit --config \
+    cloudbuild.yaml
